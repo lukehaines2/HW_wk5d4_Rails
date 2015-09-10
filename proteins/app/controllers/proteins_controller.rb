@@ -1,2 +1,4 @@
 class ProteinsController < ApplicationController
+  
+
 end
