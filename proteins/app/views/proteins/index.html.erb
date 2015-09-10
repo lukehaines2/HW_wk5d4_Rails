@@ -3,3 +3,45 @@
 <form action="/proteins" method="post">
   <input type="submit" value="Create">
 </form>
+
+
+
+<h2>Proteins</h2>
+
+<a class="btn" href="/proteins/new">Add Protein</a>
+
+<div class="proteins">
+  <% @proteins.each do |protein| %>
+  <div class="row">
+    <img src="<%= protein.photo_url %>" alt="<%= protein.name %> photo">
+    <ul>
+      <li>
+        <h2>
+          <a href="/proteins/<%= protein.id %>">
+            <%= protein.name %>
+          </a>
+        </h2>
+      </li>
+      <li>
+        <h2>
+          <a id="describe" href="/proteins/<%= protein.id %>">
+            <%= protein.description %>
+          </a>
+        </h2>
+      </li>
+      <li>
+        <a href="/proteins/<%= protein.id %>/edit">
+          Edit
+        </a>
+      </li>
+      <li>
+        <li>
+          <form action="/proteins/<%= protein.id %>/delete" method="post">
+            <button>Delete</button>
+          </form>
+        </li>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>

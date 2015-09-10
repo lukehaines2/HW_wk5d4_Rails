@@ -1,19 +1,22 @@
 class ProteinsController < ApplicationController
+  protect_from_forgery
 
   def index
-   
+   @proteins = Protein.all
+   # params.require(:Protein).permit!
   end
 
   def new
-    render text: "NEW"
+    @proteins = Protein.new
   end
 
   def create
-    render text: "CREATE"
+    # render text: "CREATE"
+    @protein = Protein.new(protein_params)
   end
 
   def show
-    render text: "SHOW"
+    @protein = Protein.find(params[:id])
   end
 
   def edit
@@ -29,3 +32,10 @@ class ProteinsController < ApplicationController
   end
 
 end
+
+private
+
+def protein_params
+  params.require(:proteins).permit(:Photo_Url, :Brand, :Goals, :Description)
+end
+
