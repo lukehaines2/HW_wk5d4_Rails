@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/proteins' => "proteins#index"
 
   # NEW
-  get '/protens/new' => "proteins#new"
+  get '/proteins/new' => "proteins#new"
 
   # CREATE
   post '/proteins' => "proteins#create"
