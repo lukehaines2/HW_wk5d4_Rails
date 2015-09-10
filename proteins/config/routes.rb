@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
+  # STATIC HOME CONTROLLER
   get '/' => "home#home"
   get '/about_us' => "home#about_us"
   get '/faq' => "home#faq"
-
 
 
   #INDEX
@@ -16,26 +16,29 @@ Rails.application.routes.draw do
   post '/proteins' => "proteins#create"
 
   # SHOW
+  get '/proteins/:id' => "proteins#show"
 
   # EDIT
+  get '/proteins/:id/edit' => 'proteins#edit'
 
   # UPDATE
+  post '/proteins/:id/' => 'proteins#update'
 
   # DELETE
+  delete '/proteins/:id/delete' => 'proteins#destroy'
 
 
 
-
-  Prefix Verb   URI Pattern                  Controller#Action
-    articles GET    /articles(.:format)          articles#index
-             POST   /articles(.:format)          articles#create
- new_article GET    /articles/new(.:format)      articles#new
-edit_article GET    /articles/:id/edit(.:format) articles#edit
-     article GET    /articles/:id(.:format)      articles#show
-             PATCH  /articles/:id(.:format)      articles#update
-             PUT    /articles/:id(.:format)      articles#update
-             DELETE /articles/:id(.:format)      articles#destroy
-        root GET    /                            welcome#index
+#   Prefix Verb   URI Pattern                  Controller#Action
+#     articles GET    /articles(.:format)          articles#index
+#              POST   /articles(.:format)          articles#create
+#  new_article GET    /articles/new(.:format)      articles#new
+# edit_article GET    /articles/:id/edit(.:format) articles#edit
+#      article GET    /articles/:id(.:format)      articles#show
+#              PATCH  /articles/:id(.:format)      articles#update
+#              PUT    /articles/:id(.:format)      articles#update
+#              DELETE /articles/:id(.:format)      articles#destroy
+#         root GET    /                            welcome#index
 
 
 
