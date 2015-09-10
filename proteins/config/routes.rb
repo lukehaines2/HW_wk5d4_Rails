@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  get '/' => "protein#home"
-  get '/about_us' => "protein#about_us"
-  get '/faq' => "protein#faq"
+  get '/' => "home#home"
+  get '/about_us' => "home#about_us"
+  get '/faq' => "home#faq"
 
 
 
