@@ -12,7 +12,9 @@ class ProteinsController < ApplicationController
 
   def create
     # render text: "CREATE"
-    @protein = Protein.new(protein_params)
+    @protein = Protein.new(params[:proteins])
+    @protein.save
+    redirect_to '/proteins'
   end
 
   def show
@@ -36,6 +38,6 @@ end
 private
 
 def protein_params
-  params.require(:proteins).permit(:Photo_Url, :Brand, :Goals, :Description)
+  params.require(:proteins).permit(:name, :photo_url, :brand, :goals, :description)
 end
 
